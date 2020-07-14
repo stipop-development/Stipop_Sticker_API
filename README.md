@@ -81,7 +81,7 @@ Accnouncements regarding major release/update in our products will be shared in 
 - Create a [**Issue regarding profile**](https://github.com/stipop-development/Stipop_Sticker_API/issues/new?assignees=&labels=Profile%2C+bug&template=-bug-report----profile.md&title=%5BBUG%5D%5BProfile%5D)
 
 
-## License
+## License :page_with_curl:
 
 Stipop Sticker API is MIT licensed, as found in the [`LICENSE`](https://github.com/stipop-development/Stipop_Sticker_API/blob/master/LICENSE) file.
 
