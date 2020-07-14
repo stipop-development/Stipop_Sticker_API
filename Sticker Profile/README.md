@@ -36,17 +36,18 @@
 Sticker Profile API supports a variety of apps from gaming apps, social network apps, image sharing apps and many more. Easily add profile options from our library of 100,000 stickers. Sticker profiles come with default backgrounds which you can use or set your own backgrounds. 
 
 ## Key Features
-* 스티커 인기순위 조회
-  - Pricing plan에 따라 20~3,000 패키지 리스트 조회
-  - 키워드, 카테고리, 국가, 언어 등의 파라미터를 활용해 세밀한 스티커 리스트 조회 가능
-  - 총 25개국 5,000명의 작가가 디자인한 스티커
-* 다양한 언어 제공
-  - English/Spanish/Hindi/Russian/German/French/Portuguese/Italian/Chinese/Catonese/Japanese/Thai/Indonesian/Korean
-* 스티커 구매 정보
-  - 쉬운 스티커 판매 모델을 적용한 빠른 개발 및 유료 스티커 수익화
-* 스티커 전송 통계
-  - 스티커 전송 통계를 통해 보다 세밀한 스티커 추천과 이를 통한 수익 극대화
+* **Sticker profile from 100,000 sticker images**
+  - Stickers are designed by professional sticker artists from 25+ countries
+  - 10+ styles are supported to fit your needs
 
+* **Profile category**
+  - Supports 5+ categories: Lovely Monster, Animal Friends, Witty Buddy, Doodles, People/Human
+  - New categories are added every month with new sticker profiles
+
+* **Background color**
+  - Hex code for background colors that match the sticker profile are provided as a default
+  - You can use the color code provided or use your own set of colors
+  
 
 ## Get started :rocket:
 
