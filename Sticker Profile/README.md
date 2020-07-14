@@ -70,11 +70,11 @@ v0.1은 스티커 스토어 개발을 위한 기본 기능/스티커를 테스�
 
 ## Opening Issues :warning:
 
-> 해당 Github Repository에 Bug 혹은 새로운 Feature 제안 Issue를 생성하실 수 있습니다.
-> 기타 문의사항은 <biz@stipop.io>에 연락 부탁드립니다.
+> Only use the GitHub Issues section if you discovered **issues with the code itself**. Do not mistake the Issues page as a help desk. You can ask for help at [Stipop Support](https://stipop.io/talk-to-expert).  
+> For support, please contact <webmaster@stipop.io>.
 
-- [**Bug Report**](https://github.com/stipop-development/Sticker_Store_API_KR/issues/new?template=bug_report.md) 생성하기
-- [**Feature Request**](https://github.com/stipop-development/Sticker_Store_API_KR/issues/new?assignees=&labels=&template=feature_request.md) 생성하기
+- Create a [**Issue regarding profile**](https://github.com/stipop-development/Stipop_Sticker_API/issues/new?assignees=&labels=Profile%2C+bug&template=-bug-report----profile.md&title=%5BBUG%5D%5BProfile%5D)
+- Create a [**Feature Request**](https://github.com/stipop-development/Stipop_Sticker_API/issues/new?assignees=&labels=enhancement&template=-feature-request-.md&title=%5BFeature+Request%5D)
 
 <h4 align="center">
   <br>
