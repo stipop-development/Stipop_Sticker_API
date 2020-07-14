@@ -39,13 +39,13 @@ Seeing how sticker is a useful kind of media, we as a team started a platform, w
 
 
 ## Key Products
-* Sticker Library
+* **Sticker Library**
   - 100,000 stickers uploaded by 5,000 global artists around the world. 
   - Customized sticker packs that capture the preferences of your target users, recommended and assorted through Stipop’s millions of user data. 
-* Sticker Store
+* **Sticker Store**
   - English/Spanish/Hindi/Russian/German/French/Portuguese/Italian/Simplified-Chinese/Traditional-Chinese/Catonese/Japanese/Thai/Indonesian
 /Korean
-* Sticker Profile
+* **Sticker Profile**
   - Top 100 download list provided in specified langauge speaking countries
 
 
