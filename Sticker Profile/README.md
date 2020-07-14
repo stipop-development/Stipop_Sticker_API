@@ -29,13 +29,11 @@
 ![Works with Android](https://img.shields.io/badge/Works_with-Android-green?style=flat-square)
 ![Works with iOS](https://img.shields.io/badge/Works_with-iOS-blue?style=flat-square)
 ![Works with JavaScript](https://img.shields.io/badge/Works_with-JavaScript-red?style=flat-square)
-![GitHub issues](https://img.shields.io/github/issues/stipop-development/Sticker_Store_API_KR?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/stipop-development/Stipop_Sticker_API?style=flat-square)
 
-> 스티팝 스티커 스토어 API를 통해 서비스에서 새로운 수익을 창출할 수 있습니다.
+> Get access to unique, fun, and trending profile images that users love.
 
-스티커는 가장 효과적이고 쉬운 감정표현이 가능합니다. 때문에 스티커는 온라인 이용자들에게 필수적인 요소입니다. 카카오톡에서만 사용되던 스티커를 당사 서비스에서 제공해보세요. 쉽고 빠른 설치를 통해 새로운 수익을 창출 할 수 있습니다. 저희는 스티커를 통해 이용자들이 온라인에서 더 효과적으로 커뮤니케이션 할 수 있도록 돕습니다. 
-
-아래 API 문서는 '스티커 스토어' 설치를 위한 문서입니다. 스티커 스토어가 아닌 '일반 스티커' 설치는 <a href="https://github.com/stipop-development/Sticker_Library_API_KR/blob/master/README.md" target="_blank">여기서</a> 확인할 수 있습니다.
+Sticker Profile API supports a variety of apps from gaming apps, social network apps, image sharing apps and many more. Easily add profile options from our library of 100,000 stickers. Sticker profiles come with default backgrounds which you can use or set your own backgrounds. 
 
 ## Key Features
 * 스티커 인기순위 조회
