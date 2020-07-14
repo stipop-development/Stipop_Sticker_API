@@ -77,24 +77,22 @@ To get started you can follow the steps"
 
 # API Document
 
-Base Url: https://bapi.stipop.io <br>
+**Base Url:** https://bapi.stipop.io <br>
 <br>
-Authentication: 스티팝 스토어 API는 API Key 인증을 통해 사용할 수 있습니다. API Key는 <a href="https://dashboard.stipop.io/signup" target="_blank">dashboard.stipop.io</a>에서 회원가입 후 앱 별로 Unique API Key를 발급 받을 수 있습니다.
+The Stipop API is internally implemented based on the RESTful principles. Our API has predictable resource-oriented URLs and is designed to use standard HTTP response codes, authentication, and verbs.
 
-API Key는 중요한 정보이니 외부 노출이 되지 않도록 신경써주시기 바랍니다. 특히 Github, blog 등 오픈된 공간에 공유하지 마세요.
-Authentication은 HTTP Basic Auth를 통해 실행됩니다. API Key를 Basic Auth Username Value로 제공하시면 됩니다. Password는 제공하지 않으셔도 됩니다.
+**Authentication:**
+<br>
+The Stipop API uses API keys to authenticate requests. You can view and manage your API keys in the <a href="https://dashboard.stipop.io/signup" target="_blank">Stipop Dashboard</a>. Your API key carries many privileges, so please keep it secure. Do not share your API key publicly in places like GitHub, blog, and so forth.
 
-모든 API Request는 HTTPS를 통해 이뤄져야합니다. HTTP를 통한 Request는 작동하지 않습니다. 또한 Authentication이 되지 않은 Request 또한 작동하지 않습니다.
+Authentication to the API is performed via HTTP Basic Auth. Provide your API key as the basic auth username value. You do not need to provide a password. All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
-## 1. Package
 
-### 1.1 Package Ranking List 스티커 팩 인기순위 조회
-
-스티커 팩 인기순위 리스트는 적용된 Pricing Plan에 따라 20개 혹은 200개의 스티커를 불러올 수 있습니다. 스티팝에 업로드 된 모든 스티커는 전 세계 작가들이 제작한 스티커이며 승인되기 위해서는 스티팝 콘텐츠 가이드라인을 통과해야만 합니다. 디폴트로 적용된 인기순위는 스티팝 앱 내 데이터를 통해 정해진 순위이며 개발이 진행됨에 따라 당사 서비스 다운로드를 기준으로 순위가 정해질 수 있습니다. 
+## 1) Sticker-Pack API (default: Best 5)
 
 * **URL**
 
-  /v0.1/store/package
+  /v0.1/package/best/:languageCode
 
 * **Method:**
 
@@ -107,27 +105,9 @@ Authentication은 HTTP Basic Auth를 통해 실행됩니다. API Key를 Basic Au
    `apikey=[string]` Issued apikey value
 
 
-* **Request Query Parameters**
+* **Request Parameters**
 
-  **Required:**
-  
-  `userId=[string]` 각 개별 사용자를 구분 할 수 있는 고유 값
-  
-  **Not Required:**
-  
-  `pageNumber=[int]` 페이지 번호
-  
-  `language=[string]` 스티커 언어팩 ex) English, Spanish, Korean, German, French, Japanese
-  
-  `date=[string]` 인기순위 기간  ex) Daily, Weekly, Monthly 미입력시 전체순위
-  
-  `category=[string]` 스티커 카테고리 x.x의 카테고리 조회후 검색
-  
-  `animated=[string]` Y: 움직이는 스티커 랭킹조회, N: 스티커 랭킹조회, 파라미터 미입력시 전체조회
-  
-  `country=[string]` 국가별 랭킹 두자리 국가코드 입력 ex) kr, us, es
-  
-  `searchText=[string]` 검색어
+  `languageCode=[string]` all:Common, en:English, es:Spanish, ko:Korean
 
 * **Success Response:**
 
@@ -135,42 +115,26 @@ Authentication은 HTTP Basic Auth를 통해 실행됩니다. API Key를 Basic Au
     **Content:** <br />
     ```json
     {
-      "header": {
-          "code": "0000",
-          "status": "success",
-          "message": "요청 성공"
-      },
-      "body": {
-          "packageList": [
-              {
-                  "packageId": 2309,                             //스티커 팩 아이디
-                  "packageName": "cada día",                     //스티커 팩 이름
-                  "packageImg": "https://img....70AAeHBn4N.png", //스티커 팩 대표 이미지
-                  "packageCategory": "Animation/Cartoon,Gag",    //스티커 팩 카테고리
-                  "packageKeywords": "bonito,mono,bello,adorable,life,cute,lovely", //스티커 팩 키워드
-                  "packageAnimated": "N",                        //움직이는 스티커 여부
-                  "isNew": "N",                                  //신규출시 여부
-                  "artistName": "pinono",                        //작가 이름
-                  "language": "Spanish",                         //언어
-                  "isDownload": "Y",                             //구매 여부
-		  "isWish": "N"					 //위시 여부
-              },
-              {
-                  "packageId": 2473,
-                  "packageName": "¿Cómo estás?",
-                  "packageImg": "https://img.....Ggdu7s3J15.gif",
-                  "packageCategory": "Phrases,Etc.",
-                  "packageKeywords": "¿Cómoestás?,letra",
-                  "packageAnimated": "Y",
-                  "isNew": "N",
-                  "artistName": "annapig",
-                  "language": "Spanish",
-		  "isDownload": "Y",                             
-		  "isWish": "N"					 
-              },
-              `......`
-          ]
-      }
+      "status": "success",
+      "code": "0000",
+      "packages": [
+        {
+            "packageId": 0,
+            "packageName": "sticker 1",
+            "mainImgUrl": "https://....Z41sOfn7Z.png",
+            "keywords": "keyword1, keyword2",
+            "language": "korean",
+            "animatedYn": "N"
+        },
+        {
+            "packageId": 1,
+            "packageName": "sticker 2",
+            "mainImgUrl": "https://....eNSPZR3r2D.png",
+            "keywords": "keyword1, keyword2",
+            "language": "Spanish",
+            "animatedYn": "N"
+        }
+       ]
     }
     ```
  
@@ -193,14 +157,1408 @@ Authentication은 HTTP Basic Auth를 통해 실행됩니다. API Key를 Basic Au
     {
        "status" : "fail", 
        "message": "server error", 
-       "code":"1000"
+       "code":"9010"
     }
     ```
 
 * **Sample Call:**
 
   ```curl
-  curl --location --request GET "https://bapi.stipop.io/store/v0.1/package?userId=xxx&pageNumber=1&country=kr" \ --header "apikey:xxxxxxxxx"
+  curl --location --request GET "https://bapi.stipop.io/v0.1/package/best/ko" \ --header "apikey:xxxxxxxxx"
+  ```
+
+
+## 2) Sticker-ID API
+
+* **URL**
+
+  /v0.1/package/:packageId
+
+* **Method:**
+
+  `GET`
+  
+*  **Request Headers**
+
+   **Required:**
+ 
+   `apikey=[string]` Issued apikey value
+
+
+* **Request Parameters**
+
+  **Required:**
+  `packageId=[integer]`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+    ```json
+    {
+        "status": "success",
+        "code": "0000",
+        "stickers": [
+          {
+              "packageId": 1,
+              "stickerId": 790,
+              "stickerImgUrl": "https://...img1.png"
+          },
+          {
+              "packageId": 1,
+              "stickerId": 791,
+              "stickerImgUrl": "https://...img2.png"
+          }
+        ]
+    }
+    ```
+ 
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist apikey",
+      "code": "9000"
+    }
+    ```
+    OR
+
+  * **Code:** 500 Internal Server error <br />
+    **Content:** 
+    ```json
+    {
+       "status" : "fail", 
+       "message": "server error", 
+       "code":"9010"
+    }
+    ```
+
+* **Sample Call:**
+
+  ```curl
+  curl --location --request GET "https://bapi.stipop.io/v0.1/package/9964" \ --header "apikey:xxxxxxxxx"
+  ```
+
+
+## 3) Best Package API - 1
+* **URL**
+
+  /v0.1.1/package/best/all
+
+* **Method:**
+
+  `GET`
+  
+*  **Request Headers**
+
+   **Required:**
+ 
+   `apikey=[string]` Issued apikey value
+
+
+* **Request Parameters**
+
+  **Required:** <br />
+   `pageNumber=[integer]` minimum 1<br />
+   `pageSize=[integer]` minimum 1<br />
+   `stickerSize=[integer]` minimum 1, maximum 30 <br />
+   `languageCode=[string]` all:Common, en:English, es:Spanish, ko:Korean <br />
+   `thumbnail=[integer]` if gif, value 1 shows thumbnail(png format) , default 0<br />
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+    ```json
+    {
+    "header": {
+        "status": "success",
+        "code": "0000"
+    },
+    "body": [
+        {
+            "packageId": 1197,
+            "packageName": "Daily muu",
+            "packageArtist": "pretty ming",
+            "mainImgUrl": "https://.....1798_ddada_muu_3.png",
+            "language": "English",
+            "animatedYn": "N",
+            "sticker": [
+                {
+                    "s_id": 23340,
+                    "p_id": 1197,
+                    "imgUrl": "https://.....8882_ddada_muu_1.png",
+                    "thumb": 0
+                },
+                {
+                    "s_id": 23352,
+                    "p_id": 1197,
+                    "imgUrl": "https://.....9004_ddada_muu_2.png",
+                    "thumb": 0
+                }
+              ]
+          }
+        ]
+    }
+    ```
+ 
+* **Error Response:**
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "pageNumber is only a number",
+      "code": "9010"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "pageSize is only a number",
+      "code": "9011"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "stickersize is only a number",
+      "code": "9012"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "please enter the correct language code",
+      "code": "9013"
+    }
+    ```
+
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist apikey",
+      "code": "9000"
+    }
+    ```
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "apikey is wrong",
+      "code": "9001"
+    }
+    ```
+
+  * **Code:** 500 Internal Server error <br />
+    **Content:** 
+    ```json
+    {
+       "status" : "fail", 
+       "message": "server error", 
+       "code":"0001"
+    }
+    ```
+
+* **Sample Call:**
+
+  ```curl
+  curl --location --request GET "https://bapi.stipop.io/v0.1.1/package/best/all?pageNumber=1&pageSize=1&stickerSize=2&languageCode=ko&thumbnail=1" \ --header "apikey:xxxxxxxxx"
+  ```
+
+
+## 4) Best Package - 2 API
+
+* **URL**
+
+  /v0.1.1/package/best/main
+
+* **Method:**
+
+  `GET`
+  
+*  **Request Headers**
+
+   **Required:**
+ 
+   `apikey=[string]` Issued apikey value
+
+
+* **Request Parameters**
+
+  **Required:** <br />
+   `pageNumber=[integer]` minimum 1<br />
+   `pageSize=[integer]` minimum 1<br />
+   `languageCode=[string]` all:Common, en:English, es:Spanish, ko:Korean <br />
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+    ```json
+    {
+    "header": {
+        "status": "success",
+        "code": "0000"
+    },
+    "body": [
+        {
+            "packageId": 645,
+            "packageName": "Beagle and Pomeranian 02",
+            "packageArtist": "Twistolive",
+            "mainImgUrl": "https://.....4229_raon_01.gif",
+            "language": "English",
+            "animatedYn": "Y"
+        },
+        {
+            "packageId": 1849,
+            "packageName": "CUTE JELLYNYANG",
+            "packageArtist": "minih",
+            "mainImgUrl": "https://.....1603_NtxKBejaRV.gif",
+            "language": "English",
+            "animatedYn": "Y"
+        }
+      ]
+    }
+    ```
+ 
+* **Error Response:**
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "pageNumber is only a number",
+      "code": "9010"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "pageSize is only a number",
+      "code": "9011"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "please enter the correct language code",
+      "code": "9013"
+    }
+    ```
+
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist apikey",
+      "code": "9000"
+    }
+    ```
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "apikey is wrong",
+      "code": "9001"
+    }
+    ```
+
+  * **Code:** 500 Internal Server error <br />
+    **Content:** 
+    ```json
+    {
+       "status" : "fail", 
+       "message": "server error", 
+       "code":"0001"
+    }
+    ```
+
+* **Sample Call:**
+
+  ```curl
+  curl --location --request GET "https://bapi.stipop.io/v0.1.1/package/best/main?pageNumber=1&pageSize=2&languageCode=en" \ 
+       --header "apikey:xxxxxxxxx"
+  ```
+
+
+## 5) Package Detail API
+
+* **URL**
+
+  /v0.1.1/package/:packageId
+
+* **Method:**
+
+  `GET`
+  
+*  **Request Headers**
+
+   **Required:**
+ 
+   `apikey=[string]` Issued apikey value
+
+
+* **Request Parameters**
+
+  **Required:** <br />
+   `packageId=[integer]`<br />
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+    ```json
+    {
+    "header": {
+        "status": "success",
+        "code": "0000"
+    },
+    "body": [
+        {
+            "packageName": "Cute Bunny",
+            "uName": "Thomas.S",
+            "packageId": 127,
+            "stickerId": 902,
+            "stickerImgUrl": "https://.....unny_1.png",
+            "animatedYn": "N"
+        },
+        {
+            "packageName": "Cute Bunny",
+            "uName": "Thomas.S",
+            "packageId": 127,
+            "stickerId": 903,
+            "stickerImgUrl": "https://.....unny_2.png",
+            "animatedYn": "N"
+        }
+        ...
+      ]
+    }
+    ```
+ 
+* **Error Response:**
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "packageId is only a number",
+      "code": "9009"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist package",
+      "code": "9020"
+    }
+    ```
+
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist apikey",
+      "code": "9000"
+    }
+    ```
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "apikey is wrong",
+      "code": "9001"
+    }
+    ```
+
+  * **Code:** 500 Internal Server error <br />
+    **Content:** 
+    ```json
+    {
+       "status" : "fail", 
+       "message": "server error", 
+       "code":"0001"
+    }
+    ```
+
+* **Sample Call:**
+
+  ```curl
+  curl --location --request GET "https://bapi.stipop.io/v0.1.1/package/198" \ 
+       --header "apikey:xxxxxxxxx"
+  ```
+
+
+## 6) User Bookmark Package - 1 API
+
+* **URL**
+
+  /v0.1.1/package/bookmark/all
+
+* **Method:**
+
+  `GET`
+  
+*  **Request Headers**
+
+   **Required:**
+ 
+   `apikey=[string]` Issued apikey value
+
+
+* **Request Parameters**
+
+  **Required:** <br />
+   `userId=[string]` values ​​that can identify end users<br />
+   `pageNumber=[integer]` minimum 1<br />
+   `pageSize=[integer]` minimum 1<br />
+   `stickerSize=[integer]` minimum 1, minimum 30<br />
+   `thumbnail=[integer]` if gif, value 1 shows thumbnail(png format) , default 0<br />
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+    ```json
+    {
+    "header": {
+        "status": "success",
+        "code": "0000"
+    },
+    "body": [
+        {
+            "packageId": 645,
+            "packageName": "Beagle and Pomeranian 02",
+            "packageArtist": "Twistolive",
+            "mainImgUrl": "https://.....4229_raon_01.gif",
+            "language": "English",
+            "animatedYn": "Y",
+            "sticker": [
+                {
+                    "s_id": 10817,
+                    "p_id": 645,
+                    "imgUrl": "https://.....4235_raon_01.png",
+                    "thumb": 1
+                },
+                {
+                    "s_id": 10819,
+                    "p_id": 645,
+                    "imgUrl": "https://.....4262_raon_02.png",
+                    "thumb": 1
+                }
+              ]
+          }
+        ]
+    }
+    ```
+ 
+* **Error Response:**
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "pageNumber is only a number",
+      "code": "9010"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "pageSize is only a number",
+      "code": "9011"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "stickersize is only a number",
+      "code": "9012"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "required userid",
+      "code": "9014"
+    }
+    ```
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist apikey",
+      "code": "9000"
+    }
+    ```
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "apikey is wrong",
+      "code": "9001"
+    }
+    ```
+
+  * **Code:** 500 Internal Server error <br />
+    **Content:** 
+    ```json
+    {
+       "status" : "fail", 
+       "message": "server error", 
+       "code":"0001"
+    }
+    ```
+
+* **Sample Call:**
+
+  ```curl
+  curl --location --request GET "https://bapi.stipop.io/v0.1.1/package/bookmark/all?pageNumber=1&pageSize=1&stickerSize=2&thumbnail=1&userId=xxx" \ 
+       --header "apikey:xxxxxxxxx"
+  ```
+
+
+## 7) User Bookmark Package - 2 API
+
+* **URL**
+
+  /v0.1.1/package/bookmark/main
+
+* **Method:**
+
+  `GET`
+  
+*  **Request Headers**
+
+   **Required:**
+ 
+   `apikey=[string]` Issued apikey value
+
+
+* **Request Parameters**
+
+  **Required:** <br />
+   `userId=[string]` values ​​that can identify end users<br />
+   `pageNumber=[integer]` minimum 1<br />
+   `pageSize=[integer]` minimum 1<br />
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+    ```json
+    {
+    "header": {
+        "status": "success",
+        "code": "0000"
+    },
+    "body": [
+        {
+            "packageId": 645,
+            "packageName": "Beagle and Pomeranian 02",
+            "packageArtist": "Twistolive",
+            "mainImgUrl": "https://.....4229_raon_01.gif",
+            "language": "English",
+            "animatedYn": "Y"
+        },
+        {
+            "packageId": 1849,
+            "packageName": "CUTE JELLYNYANG",
+            "packageArtist": "minih",
+            "mainImgUrl": "https://.....1603_NtxKBejaRV.gif",
+            "language": "English",
+            "animatedYn": "Y"
+        }
+      ]
+    }
+    ```
+ 
+* **Error Response:**
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "pageNumber is only a number",
+      "code": "9010"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "pageSize is only a number",
+      "code": "9011"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "required userid",
+      "code": "9014"
+    }
+    ```
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist apikey",
+      "code": "9000"
+    }
+    ```
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "apikey is wrong",
+      "code": "9001"
+    }
+    ```
+
+  * **Code:** 500 Internal Server error <br />
+    **Content:** 
+    ```json
+    {
+       "status" : "fail", 
+       "message": "server error", 
+       "code":"0001"
+    }
+    ```
+
+* **Sample Call:**
+
+  ```curl
+  curl --location --request GET "https://bapi.stipop.io/v0.1.1/package/bookmark/main?pageNumber=1&pageSize=2&userId=xxx" \ 
+       --header "apikey:xxxxxxxxx"
+  ```
+
+
+## 8) User Bookmark Package - 3 API
+
+* **URL**
+
+  /v0.1.1/package/bookmark
+
+* **Method:**
+
+  `POST`
+  
+*  **Request Headers**
+
+   **Required:**
+ 
+   `apikey=[string]` Issued apikey value
+
+
+* **Request Body**
+
+  **Required:** <br />
+   `packageId=[integer]`<br />
+   `userId=[string]` values ​​that can identify end users<br />
+
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+    ```json
+    {
+    "header": {
+        "status": "success",
+        "code": "0000"
+    }
+    ```
+ 
+* **Error Response:**
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "packageId is only a number",
+      "code": "9009"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "required userid",
+      "code": "9014"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist package",
+      "code": "9020"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "package already add",
+      "code": "9023"
+    }
+    ```
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist apikey",
+      "code": "9000"
+    }
+    ``` 
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "apikey is wrong",
+      "code": "9001"
+    }
+    ```
+  * **Code:** 500 Internal Server error <br />
+    **Content:** 
+    ```json
+    {
+       "status" : "fail", 
+       "message": "server error", 
+       "code":"0001"
+    }
+    ```
+
+* **Sample Call:**
+
+  ```curl
+  curl --location --request POST "https://bapi.stipop.io/v0.1.1/package/bookmark/" \ 
+       --header "apikey:xxxxxxxxx -d "userId=xxx&packageId=127"
+  ```
+
+
+## 9) User Bookmark Package - 4 API 
+
+* **URL**
+
+  /v0.1.1/package/bookmark
+
+* **Method:**
+
+  `DELETE`
+  
+*  **Request Headers**
+
+   **Required:**
+ 
+   `apikey=[string]` Issued apikey value
+
+
+* **Request Body**
+
+  **Required:** <br />
+   `packageId=[integer]`<br />
+   `userId=[string]` values ​​that can identify end users<br />
+
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+    ```json
+    {
+    "header": {
+        "status": "success",
+        "code": "0000"
+    }
+    ```
+ 
+* **Error Response:**
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "packageId is only a number",
+      "code": "9009"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "required userid",
+      "code": "9014"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist package",
+      "code": "9020"
+    }
+    ```
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist apikey",
+      "code": "9000"
+    }
+    ``` 
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "apikey is wrong",
+      "code": "9001"
+    }
+    ```
+  * **Code:** 500 Internal Server error <br />
+    **Content:** 
+    ```json
+    {
+       "status" : "fail", 
+       "message": "server error", 
+       "code":"0001"
+    }
+    ```
+
+* **Sample Call:**
+
+  ```curl
+  curl --location --request DELETE "https://bapi.stipop.io/v0.1.1/package/bookmark/" \ 
+       --header "apikey:xxxxxxxxx -d "userId=xxx&packageId=127"
+  ```
+
+## 10) User Bookmark Sticker - 1 API 
+
+* **URL**
+
+  /v0.1.1/package/sticker/bookmark
+
+* **Method:**
+
+  `GET`
+  
+*  **Request Headers**
+
+   **Required:**
+ 
+   `apikey=[string]` Issued apikey value
+
+
+* **Request Parameters**
+
+  **Required:** <br />
+   `pageNumber=[integer]` default value 1<br />
+   `pageSize=[integer]` default value 10<br />
+   `userId=[string]` values ​​that can identify end users<br />
+
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+    ```json
+    {
+    "header": {
+        "status": "success",
+        "code": "0000"
+    },
+    "body": [
+        {
+            "stickerId": 10818,
+            "stickerImgUrl": "https://img.stipop.io/.....27154236_raon_02.gif",
+            "packageId": 645
+        },
+        {
+            "stickerId": 10816,
+            "stickerImgUrl": "https://img.stipop.io/.....27154229_raon_01.gif",
+            "packageId": 645
+        }
+        ]
+    }
+    ```
+ 
+* **Error Response:**
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "pageNumber is only a number",
+      "code": "9010"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "pageSize is only a number",
+      "code": "9011"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "required userid",
+      "code": "9014"
+    }
+    ```
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist apikey",
+      "code": "9000"
+    }
+    ``` 
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "apikey is wrong",
+      "code": "9001"
+    }
+    ```
+  * **Code:** 500 Internal Server error <br />
+    **Content:** 
+    ```json
+    {
+       "status" : "fail", 
+       "message": "server error", 
+       "code":"0001"
+    }
+    ```
+
+* **Sample Call:**
+
+  ```curl
+  curl --location --request GET "https://bapi.stipop.io/v0.1.1/package/sticker/bookmark?pageNumber=2&pageSize=5&userId=xxx" \ 
+       --header "apikey:xxxxxxxxx
+  ```
+
+## 11) User Bookmark Sticker - 2 API 
+
+* **URL**
+
+  /v0.1.1/package/sticker/bookmark
+
+* **Method:**
+
+  `POST`
+  
+*  **Request Headers**
+
+   **Required:**
+ 
+   `apikey=[string]` Issued apikey value
+
+
+* **Request Body**
+
+  **Required:** <br />
+   `stickerId=[integer]`<br />
+   `userId=[string]` values ​​that can identify end users<br />
+
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+    ```json
+    {
+    "header": {
+        "status": "success",
+        "code": "0000"
+    }
+    ```
+ 
+* **Error Response:**
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "required userid",
+      "code": "9014"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "stickerId is only a number",
+      "code": "9015"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist sticker",
+      "code": "9020"
+    }
+    ```
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "sticker already add",
+      "code": "9024"
+    }
+    ```
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist apikey",
+      "code": "9000"
+    }
+    ``` 
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "apikey is wrong",
+      "code": "9001"
+    }
+    ```
+  * **Code:** 500 Internal Server error <br />
+    **Content:** 
+    ```json
+    {
+       "status" : "fail", 
+       "message": "server error", 
+       "code":"0001"
+    }
+    ```
+
+* **Sample Call:**
+
+  ```curl
+  curl --location --request POST "https://bapi.stipop.io/v0.1.1/package/sticker/bookmark/" \ 
+       --header "apikey:xxxxxxxxx -d "userId=xxx&stickerId=38015"
+  ```
+
+## 12) User Bookmark Sticker - 3 API 
+
+* **URL**
+
+  /v0.1.1/package/sticker/bookmark
+
+* **Method:**
+
+  `DELETE`
+  
+*  **Request Headers**
+
+   **Required:**
+ 
+   `apikey=[string]` Issued apikey value
+
+
+* **Request Body**
+
+  **Required:** <br />
+   `stickerId=[integer]`<br />
+   `userId=[string]` values ​​that can identify end users<br />
+
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+    ```json
+    {
+    "header": {
+        "status": "success",
+        "code": "0000"
+    }
+    ```
+ 
+* **Error Response:**
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "required userid",
+      "code": "9014"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "stickerId is only a number",
+      "code": "9015"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist sticker",
+      "code": "9020"
+    }
+    ```
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist apikey",
+      "code": "9000"
+    }
+    ``` 
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "apikey is wrong",
+      "code": "9001"
+    }
+    ```
+  * **Code:** 500 Internal Server error <br />
+    **Content:** 
+    ```json
+    {
+       "status" : "fail", 
+       "message": "server error", 
+       "code":"0001"
+    }
+    ```
+
+* **Sample Call:**
+
+  ```curl
+  curl --location --request DELETE "https://bapi.stipop.io/v0.1.1/package/sticker/bookmark/" \ 
+       --header "apikey:xxxxxxxxx -d "userId=xxx&stickerId=38015"
+  ```
+
+## 13) Search Sticker - API 
+
+* **URL**
+
+  /v0.1.1/package/sticker/search
+
+* **Method:**
+
+  `GET`
+  
+*  **Request Headers**
+
+   **Required:**
+ 
+   `apikey=[string]` Issued apikey value
+
+
+* **Request Body**
+
+  **Required:** <br />
+   `packageName=[string]` only one of two attributes is allowed ; packageName or stickerTag<br />
+   `stickerTag=[string]` only one of two attributes is allowed ; packageName or stickerTag<br />
+   `pageNumber=[integer]` default value 0<br />
+   `pageSize=[integer]` default value 10<br />
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+    ```json
+      {
+    "header": {
+        "status": "success",
+        "code": "0000"
+    },
+    "body": [
+        {
+            "packageId": 1879,
+            "packageName": "Heart collection",
+            "stickerId": 38008,
+            "stickerImgUrl": "https://img.stipop.io/2019/8/12/......5582442_todangi_01.gif",
+            "stickerTags": [
+                "heart",
+                "cute",
+                "activity",
+                "funny",
+                "love"
+            ],
+            "commitDate": "2019-08-12 16:50:46"
+        },
+        {
+            "packageId": 1879,
+            "packageName": "Heart collection",
+            "stickerId": 38013,
+            "stickerImgUrl": "https://img.stipop.io/2019/8/12/......5583842_goodday_06.gif",
+            "stickerTags": [
+                "heart",
+                "cute",
+                "activity",
+                "funny",
+                "love"
+            ],
+            "commitDate": "2019-08-12 16:50:46"
+        }
+    ```
+ 
+* **Error Response:**
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "pageNumber or pageSize is only number",
+      "code": "9032"
+    }
+    ```
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "stickerTag or packageName is only character",
+      "code": "9033"
+    }
+    ```
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist apikey",
+      "code": "9000"
+    }
+    ``` 
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "apikey is wrong",
+      "code": "9001"
+    }
+    ```
+  * **Code:** 500 Internal Server error <br />
+    **Content:** 
+    ```json
+    {
+       "status" : "fail", 
+       "message": "server error", 
+       "code":"0001"
+    }
+    ```
+
+* **Sample Call:**
+
+  ```curl
+  curl --location --request GET "https://bapi.stipop.io/v0.1.1/package/sticker/search?stickerTag=happy&pageNumber=2&pageSize=5" \ 
+       --header "apikey:xxxxxxxxx"
   ```
   
 
