@@ -83,11 +83,11 @@ The Stipop API uses API keys to authenticate requests. You can view and manage y
 Authentication to the API is performed via HTTP Basic Auth. Provide your API key as the basic auth username value. You do not need to provide a password. All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
 
 
-## 1. Package
+## 1. Profile Package
 
-### 1.1 Category Profile Package List 스티커 팩 인기순위 조회
+### 1.1 Profile Package List
 
-스티커 팩 인기순위 리스트는 적용된 Pricing Plan에 따라 20개 혹은 200개의 스티커를 불러올 수 있습니다. 스티팝에 업로드 된 모든 스티커는 전 세계 작가들이 제작한 스티커이며 승인되기 위해서는 스티팝 콘텐츠 가이드라인을 통과해야만 합니다. 디폴트로 적용된 인기순위는 스티팝 앱 내 데이터를 통해 정해진 순위이며 개발이 진행됨에 따라 당사 서비스 다운로드를 기준으로 순위가 정해질 수 있습니다. 
+Load sticker profile packages with this API. It contains package general info and category info. Use #1.2 API to load the details of the package. The stickers that are shown in this API have been carefully selected by our content curation team for the best profile images.
 
 * **URL**
 
@@ -101,7 +101,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 
    **Required:**
  
-   `apikey=[string]` Issued apikey value
+   `apikey=[string]` Issued API Key value from Stipop dashboard.
    
 
 * **Success Response:**
@@ -113,7 +113,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
       "header": {
           "code": "0000",
           "status": "success",
-          "message": "요청 성공"
+          "message": "request success"
       },
       "body": {
            "profilePackageList": [
@@ -209,7 +209,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
 
    **Required:**
  
-   `apikey=[string]` Issued apikey value
+   `apikey=[string]` Issued API Key value from Stipop dashboard.
 
 * **Request Path Parameters**
 
@@ -227,7 +227,7 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
       "header": {
           "code": "0000",
           "status": "success",
-          "message": "요청 성공"
+          "message": "request success"
       },
       "body": {
 	      "package": {
