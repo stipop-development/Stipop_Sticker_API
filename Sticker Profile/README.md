@@ -1,10 +1,10 @@
 <h1 align="center">
-  Stipop
+  Sticker Profile API
   <br>
 </h1>
 
 
-<h4 align="center">스티커(이모티콘) 스토어 API</h4>
+<h4 align="center">Guide to adding sticker profiles into your apps and websites.</h4>
 
 <p align="center">
   <a href="#Intro">Intro</a> •
