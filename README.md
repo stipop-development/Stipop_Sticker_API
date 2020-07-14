@@ -15,14 +15,8 @@
   <a href="#license">License</a>
 	  <br>Go to:
   <a href="https://github.com/stipop-development/Stipop_Sticker_API/tree/master/Sticker%20Library" target="_blank">Sticker Library API</a> •
-  
-  
-  <a href="#1-package">1. Package</a> •
-  <a href="#2-donwload-구매-정보">2. Download</a> •
-  <a href="#3-analytics">3. Analytics</a> •
-  <a href="#4-common">4. Common</a> •
-  <a href="#5-my-sticker">5. My Sticker</a> •
-  <a href="#6-gift">6. Gift</a>
+  <a href="https://github.com/stipop-development/Stipop_Sticker_API/tree/master/Sticker%20Store" target="_blank">Sticker Store API</a> •
+  <a href="https://github.com/stipop-development/Stipop_Sticker_API/tree/master/Sticker%20Profile" target="_blank">Sticker Profile API</a> 
 </p>
 
 
