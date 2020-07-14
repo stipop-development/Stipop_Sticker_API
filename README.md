@@ -40,13 +40,18 @@ Seeing how sticker is a useful kind of media, we as a team started a platform, w
 
 ## Key Products
 * **Sticker Library**
-  - 100,000 stickers uploaded by 5,000 global artists around the world. 
-  - Customized sticker packs that capture the preferences of your target users, recommended and assorted through Stipop’s millions of user data. 
+  - Provide a wide range of stickers to users to increase user engagement and retention rate.
+  - You can support up to 300 sticker packs or roughly 6,000 stickers.
+  - Stickers are supported up to 5 regions from 15 langauges in total.
+  
 * **Sticker Store**
-  - English/Spanish/Hindi/Russian/German/French/Portuguese/Italian/Simplified-Chinese/Traditional-Chinese/Catonese/Japanese/Thai/Indonesian
-/Korean
+  - Add a sticker store to your app and generate new source of revenue.
+  - You can set the pricing of the stickers in your own currency.
+  - Support up to 100,000 stickers in 8 regions of your selection.
+  
 * **Sticker Profile**
-  - Top 100 download list provided in specified langauge speaking countries
+  - Get access to unique, fun, and trending profile images that users love.
+  - An easy way for users to express their identy while keeping privacy safe.
 
 
 ## Get started :rocket:
