@@ -39,7 +39,7 @@ Seeing how sticker is a useful kind of media, we as a team started a platform, w
 
 
 ## Key Products
-* **Sticker Library**
+* **<a href="https://github.com/stipop-development/Stipop_Sticker_API/tree/master/Sticker%20Library" target="_blank">Sticker Library API</a>**
   - Provide a wide range of stickers to users to increase user engagement and retention rate.
   - You can support up to 300 sticker packs or roughly 6,000 stickers.
   - Stickers are supported up to 5 regions from 15 langauges in total.
