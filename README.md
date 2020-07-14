@@ -13,7 +13,7 @@
   <a href="#announcements-loudspeaker">Announcements</a> •
   <a href="#opening-issues-warning">Issues</a> •
   <a href="#license">License</a>
-	  <br>Go to:
+	  <br>
   <a href="https://github.com/stipop-development/Stipop_Sticker_API/tree/master/Sticker%20Library" target="_blank">Sticker Library API</a> •
   <a href="https://github.com/stipop-development/Stipop_Sticker_API/tree/master/Sticker%20Store" target="_blank">Sticker Store API</a> •
   <a href="https://github.com/stipop-development/Stipop_Sticker_API/tree/master/Sticker%20Profile" target="_blank">Sticker Profile API</a> 
