@@ -68,7 +68,7 @@ To get started you can follow the steps"
 > Only use the GitHub Issues section if you discovered **issues with the code itself**. Do not mistake the Issues page as a help desk. You can ask for help at [Stipop Support](https://stipop.io/talk-to-expert).  
 > For support, please contact <webmaster@stipop.io>.
 
-- Create a [**Issue regarding profile**](https://github.com/stipop-development/Stipop_Sticker_API/issues/new?assignees=&labels=Profile%2C+bug&template=-bug-report----profile.md&title=%5BBUG%5D%5BProfile%5D)
+- Create a [**Issue regarding library**](https://github.com/stipop-development/Stipop_Sticker_API/issues/new?assignees=&labels=Library%2C+bug&template=-bug-report----library.md&title=%5BBUG%5D%5BLibrary%5D)
 - Create a [**Feature Request**](https://github.com/stipop-development/Stipop_Sticker_API/issues/new?assignees=&labels=enhancement&template=-feature-request-.md&title=%5BFeature+Request%5D)
 
 <h4 align="center">
