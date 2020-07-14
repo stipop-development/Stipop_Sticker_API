@@ -77,12 +77,12 @@ Accnouncements regarding major release/update in our products will be shared in 
 > For support, please contact <webmaster@stipop.io>.
 
 - Create a [**Issue regarding library**](https://github.com/stipop-development/Stipop_Sticker_API/issues/new?assignees=&labels=Library%2C+bug&template=-bug-report----library.md&title=%5BBUG%5D%5BLibrary%5D)
-- Create a [**Issue regarding store**](https://github.com/stipop-development/Stipop_Sticker_API/issues/new?assignees=&labels=Library%2C+bug&template=-bug-report----library.md&title=%5BBUG%5D%5BLibrary%5D)
-- Create a [**Issue regarding profile**](https://github.com/stipop-development/Stipop_Sticker_API/issues/new?assignees=&labels=Store%2C+bug&template=-bug-report----store.md&title=%5BBUG%5D%5BStore%5D)
+- Create a [**Issue regarding store**](https://github.com/stipop-development/Stipop_Sticker_API/issues/new?assignees=&labels=Store%2C+bug&template=-bug-report----store.md&title=%5BBUG%5D%5BStore%5D)
+- Create a [**Issue regarding profile**](https://github.com/stipop-development/Stipop_Sticker_API/issues/new?assignees=&labels=Profile%2C+bug&template=-bug-report----profile.md&title=%5BBUG%5D%5BProfile%5D)
 
 
 ## License
 
-Stipop Sticker API is MIT licensed, as found in the [`LICENSE`](https://github.com/stipop-development/Stipop_Library_API/blob/master/LICENSE) file.
+Stipop Sticker API is MIT licensed, as found in the [`LICENSE`](https://github.com/stipop-development/Stipop_Sticker_API/blob/master/LICENSE) file.
 
 
