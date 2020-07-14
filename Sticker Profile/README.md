@@ -193,9 +193,9 @@ Load sticker profile packages with this API. It contains package general info an
   curl --location --request GET "https://bapi.stipop.io/profile/v0.1/package" \ --header "apikey:xxxxxxxxx"
   ```
   
-### 1.2 Package Info 스티커 팩 상세
+### 1.2 Package Info
 
-스티커 팩 인기순위 리스트는 적용된 Pricing Plan에 따라 20개 혹은 200개의 스티커를 불러올 수 있습니다. 스티팝에 업로드 된 모든 스티커는 전 세계 작가들이 제작한 스티커이며 승인되기 위해서는 스티팝 콘텐츠 가이드라인을 통과해야만 합니다. 디폴트로 적용된 인기순위는 스티팝 앱 내 데이터를 통해 정해진 순위이며 개발이 진행됨에 따라 당사 서비스 다운로드를 기준으로 순위가 정해질 수 있습니다. 
+You can load detail images of the sticker package you loaded by using #1.1 API. Each sticker package has 15~24 stickers. You can apply the same HEX background color to other stickers in the same package OR use your own color sets. 
 
 * **URL**
 
@@ -215,7 +215,7 @@ Load sticker profile packages with this API. It contains package general info an
 
   **Required:**
   
-  `packageId=[int]` 패키지 아이디 값
+  `packageId=[int]`
    
 
 * **Success Response:**
