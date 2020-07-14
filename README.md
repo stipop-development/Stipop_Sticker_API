@@ -56,7 +56,12 @@ Seeing how sticker is a useful kind of media, we as a team started a platform, w
 
 ## Get started :rocket:
 
-To get started, review sections below in the 'README' files in the [Sticker_Library_API](https://github.com/stipop-development/Sticker_Library_API) repository.
+To get started, choose one of the products below and follow instructions in the according 'README' files in each product folders.
+  - <a href="https://github.com/stipop-development/Stipop_Sticker_API/tree/master/Sticker%20Library" target="_blank">Sticker Library API</a>
+  - <a href="https://github.com/stipop-development/Stipop_Sticker_API/tree/master/Sticker%20Store" target="_blank">Sticker Store API</a>
+  - <a href="https://github.com/stipop-development/Stipop_Sticker_API/tree/master/Sticker%20Profile" target="_blank">Sticker Profile API</a>
+
+review sections below in the 'README' files in the [Sticker_Library_API](https://github.com/stipop-development/Sticker_Library_API) repository.
 You can also get a unique API Key to activate all APIs by signing up here: https://stipop.io.
 
 
