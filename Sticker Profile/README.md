@@ -83,13 +83,13 @@ Authentication은 HTTP Basic Auth를 통해 실행됩니다. API Key를 Basic Au
 
 ## 1. Package
 
-### 1.1 Package Ranking List 스티커 팩 인기순위 조회
+### 1.1 Category Profile Package List 스티커 팩 인기순위 조회
 
 스티커 팩 인기순위 리스트는 적용된 Pricing Plan에 따라 20개 혹은 200개의 스티커를 불러올 수 있습니다. 스티팝에 업로드 된 모든 스티커는 전 세계 작가들이 제작한 스티커이며 승인되기 위해서는 스티팝 콘텐츠 가이드라인을 통과해야만 합니다. 디폴트로 적용된 인기순위는 스티팝 앱 내 데이터를 통해 정해진 순위이며 개발이 진행됨에 따라 당사 서비스 다운로드를 기준으로 순위가 정해질 수 있습니다. 
 
 * **URL**
 
-  /v0.1/store/package
+  /profile/v0.1/package
 
 * **Method:**
 
@@ -100,29 +100,7 @@ Authentication은 HTTP Basic Auth를 통해 실행됩니다. API Key를 Basic Au
    **Required:**
  
    `apikey=[string]` Issued apikey value
-
-
-* **Request Query Parameters**
-
-  **Required:**
-  
-  `userId=[string]` 각 개별 사용자를 구분 할 수 있는 고유 값
-  
-  **Not Required:**
-  
-  `pageNumber=[int]` 페이지 번호
-  
-  `language=[string]` 스티커 언어팩 ex) English, Spanish, Korean, German, French, Japanese
-  
-  `date=[string]` 인기순위 기간  ex) Daily, Weekly, Monthly 미입력시 전체순위
-  
-  `category=[string]` 스티커 카테고리 x.x의 카테고리 조회후 검색
-  
-  `animated=[string]` Y: 움직이는 스티커 랭킹조회, N: 스티커 랭킹조회, 파라미터 미입력시 전체조회
-  
-  `country=[string]` 국가별 랭킹 두자리 국가코드 입력 ex) kr, us, es
-  
-  `searchText=[string]` 검색어
+   
 
 * **Success Response:**
 
@@ -136,35 +114,50 @@ Authentication은 HTTP Basic Auth를 통해 실행됩니다. API Key를 Basic Au
           "message": "요청 성공"
       },
       "body": {
-          "packageList": [
-              {
-                  "packageId": 2309,                             //스티커 팩 아이디
-                  "packageName": "cada día",                     //스티커 팩 이름
-                  "packageImg": "https://img....70AAeHBn4N.png", //스티커 팩 대표 이미지
-                  "packageCategory": "Animation/Cartoon,Gag",    //스티커 팩 카테고리
-                  "packageKeywords": "bonito,mono,bello,adorable,life,cute,lovely", //스티커 팩 키워드
-                  "packageAnimated": "N",                        //움직이는 스티커 여부
-                  "isNew": "N",                                  //신규출시 여부
-                  "artistName": "pinono",                        //작가 이름
-                  "language": "Spanish",                         //언어
-                  "isDownload": "Y",                             //구매 여부
-		  "isWish": "N"					 //위시 여부
-              },
-              {
-                  "packageId": 2473,
-                  "packageName": "¿Cómo estás?",
-                  "packageImg": "https://img.....Ggdu7s3J15.gif",
-                  "packageCategory": "Phrases,Etc.",
-                  "packageKeywords": "¿Cómoestás?,letra",
-                  "packageAnimated": "Y",
-                  "isNew": "N",
-                  "artistName": "annapig",
-                  "language": "Spanish",
-		  "isDownload": "Y",                             
-		  "isWish": "N"					 
-              },
-              `......`
-          ]
+           "profilePackageList": [
+            {
+                "categoryId": 1,
+                "category": "Lovely Monster",
+                "packages": [
+                    {
+                        "packageId": 3887,
+                        "packageName": "Tubby Nugget Pack 2",
+                        "packageImg": "https://img..._LabUxIW4B4.gif",
+                        "packageAnimated": "Y",
+                        "backgroundColor": "#F1C4BD"
+                    },
+                    {
+                        "packageId": 3184,
+                        "packageName": "Eggbird's moving world",
+                        "packageImg": "https://img...cf3o7OuO.gif",
+                        "packageAnimated": "Y",
+                        "backgroundColor": "#6FBEA9"
+                    }
+		    .....
+                ]
+            },
+            {
+                "categoryId": 2,
+                "category": "Animal Friends",
+                "packages": [
+                    {
+                        "packageId": 1054,
+                        "packageName": "HELLO CARONG",
+                        "packageImg": "https://img.....NG_17.gif",
+                        "packageAnimated": "Y",
+                        "backgroundColor": "#D696F6"
+                    },
+                    {
+                        "packageId": 4404,
+                        "packageName": "a flower-loving penguin",
+                        "packageImg": "https://img....O50xG.gif",
+                        "packageAnimated": "Y",
+                        "backgroundColor": "#799FF5"
+                    }
+		    .....
+                ]
+            },
+	 ]
       }
     }
     ```
@@ -195,7 +188,102 @@ Authentication은 HTTP Basic Auth를 통해 실행됩니다. API Key를 Basic Au
 * **Sample Call:**
 
   ```curl
-  curl --location --request GET "https://bapi.stipop.io/store/v0.1/package?userId=xxx&pageNumber=1&country=kr" \ --header "apikey:xxxxxxxxx"
+  curl --location --request GET "https://bapi.stipop.io/profile/v0.1/package" \ --header "apikey:xxxxxxxxx"
+  ```
+  
+### 1.2 Package Info 스티커 팩 상세
+
+스티커 팩 인기순위 리스트는 적용된 Pricing Plan에 따라 20개 혹은 200개의 스티커를 불러올 수 있습니다. 스티팝에 업로드 된 모든 스티커는 전 세계 작가들이 제작한 스티커이며 승인되기 위해서는 스티팝 콘텐츠 가이드라인을 통과해야만 합니다. 디폴트로 적용된 인기순위는 스티팝 앱 내 데이터를 통해 정해진 순위이며 개발이 진행됨에 따라 당사 서비스 다운로드를 기준으로 순위가 정해질 수 있습니다. 
+
+* **URL**
+
+  /profile/v0.1/package/:packageId
+
+* **Method:**
+
+  `GET`
+  
+*  **Request Headers**
+
+   **Required:**
+ 
+   `apikey=[string]` Issued apikey value
+
+* **Request Path Parameters**
+
+  **Required:**
+  
+  `packageId=[int]` 패키지 아이디 값
+   
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+    ```json
+    {
+      "header": {
+          "code": "0000",
+          "status": "success",
+          "message": "요청 성공"
+      },
+      "body": {
+	      "package": {
+		    "packageId": 1054,
+		    "packageName": "HELLO CARONG",
+		    "packageImg": "https://img....G_17.gif",
+		    "packageAnimated": "Y",
+		    "backgroundColor": "#D696F6",
+		    "stickers": [
+			{
+			    "stickerId": 19668,
+			    "packageId": 1054,
+			    "stickerImg": "https://img....01.gif"
+			},
+			{
+			    "stickerId": 19669,
+			    "packageId": 1054,
+			    "stickerImg": "https://img...NG_02.gif"
+			},
+			{
+			    "stickerId": 19670,
+			    "packageId": 1054,
+			    "stickerImg": "https://img...._03.gif"
+			},
+			......
+		     ]
+		}
+      }
+    }
+    ```
+ 
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "non exist apikey",
+      "code": "9000"
+    }
+    ```
+    OR
+
+  * **Code:** 500 Internal Server error <br />
+    **Content:** 
+    ```json
+    {
+       "status" : "fail", 
+       "message": "server error", 
+       "code":"1000"
+    }
+    ```
+
+* **Sample Call:**
+
+  ```curl
+  curl --location --request GET "https://bapi.stipop.io/profile/v0.1/package/1054" \ --header "apikey:xxxxxxxxx"
   ```
   
 
