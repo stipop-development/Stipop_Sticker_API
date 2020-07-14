@@ -72,14 +72,16 @@ To get started you can follow the steps"
 
 # API Document
 
-Base Url: https://bapi.stipop.io <br>
+**Base Url:** https://bapi.stipop.io <br>
 <br>
-Authentication: 스티팝 스토어 API는 API Key 인증을 통해 사용할 수 있습니다. API Key는 <a href="https://dashboard.stipop.io/signup" target="_blank">dashboard.stipop.io</a>에서 회원가입 후 앱 별로 Unique API Key를 발급 받을 수 있습니다.
+The Stipop API is internally implemented based on the RESTful principles. Our API has predictable resource-oriented URLs and is designed to use standard HTTP response codes, authentication, and verbs.
 
-API Key는 중요한 정보이니 외부 노출이 되지 않도록 신경써주시기 바랍니다. 특히 Github, blog 등 오픈된 공간에 공유하지 마세요.
-Authentication은 HTTP Basic Auth를 통해 실행됩니다. API Key를 Basic Auth Username Value로 제공하시면 됩니다. Password는 제공하지 않으셔도 됩니다.
+**Authentication:**
+<br>
+The Stipop API uses API keys to authenticate requests. You can view and manage your API keys in the <a href="https://dashboard.stipop.io/signup" target="_blank">Stipop Dashboard</a>. Your API key carries many privileges, so please keep it secure. Do not share your API key publicly in places like GitHub, blog, and so forth.
 
-모든 API Request는 HTTPS를 통해 이뤄져야합니다. HTTP를 통한 Request는 작동하지 않습니다. 또한 Authentication이 되지 않은 Request 또한 작동하지 않습니다.
+Authentication to the API is performed via HTTP Basic Auth. Provide your API key as the basic auth username value. You do not need to provide a password. All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests without authentication will also fail.
+
 
 ## 1. Package
 
