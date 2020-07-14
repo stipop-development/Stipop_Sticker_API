@@ -44,17 +44,17 @@ Seeing how sticker is a useful kind of media, we as a team started a platform, w
   - You can support up to 300 sticker packs or roughly 6,000 stickers.
   - Stickers are supported up to 5 regions from 15 langauges in total.
   
-* **Sticker Store**
+* **<a href="https://github.com/stipop-development/Stipop_Sticker_API/tree/master/Sticker%20Store" target="_blank">Sticker Store API</a>**
   - Add a sticker store to your app and generate new source of revenue.
   - You can set the pricing of the stickers in your own currency.
   - Support up to 100,000 stickers in 8 regions of your selection.
   
-* **Sticker Profile**
+* **<a href="https://github.com/stipop-development/Stipop_Sticker_API/tree/master/Sticker%20Profile" target="_blank">Sticker Profile API</a>**
   - Get access to unique, fun, and trending profile images that users love.
   - An easy way for users to express their identy while keeping privacy safe.
   
   
-* **Camera Stickers**
+* **Camera Stickers (Coming soon)**
   - Add hot, trending stickers onto your camera app.
   - Feature to be added soon: August 2020.
 
