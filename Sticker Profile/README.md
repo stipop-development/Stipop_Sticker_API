@@ -14,8 +14,8 @@
   <a href="#opening-issues-warning">Issues</a> •
   <a href="#license">License</a>
 	  <br>
-  <a href="#1.1-profile-package-list">1.1 Profile Package List</a> •
-  <a href="#1.2-package-info">1.2 Package Info</a> •
+  <a href="#11-profile-package-list">1.1 Profile Package List</a> •
+  <a href="#12-package-info">1.2 Package Info</a> •
   
 </p>
 
