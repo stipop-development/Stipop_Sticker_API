@@ -15,7 +15,7 @@
   <a href="#license">License</a>
 	  <br>
   <a href="#11-profile-package-list">1.1 Profile Package List</a> •
-  <a href="#12-package-info">1.2 Package Info</a> •
+  <a href="#12-package-info">1.2 Package Info</a>
   
 </p>
 
