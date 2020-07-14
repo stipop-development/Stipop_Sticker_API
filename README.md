@@ -73,10 +73,11 @@ Accnouncements regarding major release/update in our products will be shared in 
 
 ## Opening Issues :warning:
 
-> Only use the GitHub Issues section if you discovered **issues with the code itself**. Do not mistake the Issues page as a help desk. You can ask for help at [Stack Overflow](https://stackoverflow.com/).  
+> Only use the GitHub Issues section if you discovered **issues with the code itself**. Do not mistake the Issues page as a help desk. You can ask for help at [Stipop Support](https://stipop.io/talk-to-expert).  
 > For support, please contact <webmaster@stipop.io>.
 
-- Create a [**general issue**](https://github.com/stipop-development/Sticker_Library_API/issues/new?template=general.md)
+- Create a [**Issue regarding library**](https://github.com/stipop-development/Stipop_Sticker_API/issues/new?assignees=&labels=Library%2C+bug&template=-bug-report----library.md&title=%5BBUG%5D%5BLibrary%5D)
+
 
 
 ## License
