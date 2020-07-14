@@ -69,7 +69,7 @@ To get started, choose one of the products below and follow instructions in the 
 Once you are ready to test out the APIs you can get a unique API Key for your app by signing into our <a href="https://stipop.io" target="_blank">homepage</a>. Once you get access to our dashboard, you'll be able to see analytics of sticker usage and paid sticker revenues if you installed the sticker store. The dashboard is currently being refurnished and many new features will be add soon. 
 
 ## Announcements :loudspeaker:
-Please check out [Annoucements](https://github.com/stipop-development/Sticker_Library_API/wiki/Announcements) for recent changes.
+Accnouncements regarding major release/update in our products will be shared in the [Annoucements](https://github.com/stipop-development/Stipop_Sticker_API/wiki/Announcements). Please check for new updates so you don't miss our latest releases!
 
 ## Opening Issues :warning:
 
