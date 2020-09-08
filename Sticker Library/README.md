@@ -1560,7 +1560,69 @@ Authentication to the API is performed via HTTP Basic Auth. Provide your API key
   curl --location --request GET "https://bapi.stipop.io/v0.1.1/package/sticker/search?stickerTag=happy&pageNumber=2&pageSize=5" \ 
        --header "apikey:xxxxxxxxx"
   ```
+ 
+ 
+ ## 14) Analytics Send Sticker - API 
+
+* **URL**
+
+  /v0.1/analytics/send
+
+* **Method:**
+
+  `POST`
   
+*  **Request Headers**
+
+   **Required:**
+ 
+   `apikey=[string]` Issued apikey value
+
+
+* **Request Body**
+
+  **Required:** <br />
+   `userId=[string]` values ​​that can identify end users<br />
+   `packageId=[integer]` <br />
+   `stickerId=[integer]` <br />
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** <br />
+    ```json
+      {
+    "header": {
+        "status": "success",
+        "code": "0000"
+    }
+ 
+* **Error Response:**
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** 
+    ```json
+    {
+      "status": "fail",
+      "message": "REQUIRED packageId! or stickerId! or userId!",
+      "code": "9020"
+    }
+    ```
+  * **Code:** 500 Internal Server error <br />
+    **Content:** 
+    ```json
+    {
+       "status" : "fail", 
+       "message": "server error", 
+       "code":"0001"
+    }
+    ```
+
+* **Sample Call:**
+
+  ```curl
+  curl --location --request POST "https://bapi.stipop.io/v0.1/analytics/send" -d "{  \"packageId\": \"118\", \"stickerId\": \"21212\", \"userId\": \"71001h0dfa\"}"
+       --header "apikey:xxxxxxxxx"
+  ```
 
 
 ## Announcements :loudspeaker:
