@@ -1,10 +1,10 @@
 <h1 align="center">
-  Stipop Sticker API
+  Our new API documentation is open (link below)
   <br>
 </h1>
 
 
-<h4 align="center">Sticker API for adding library, store, and profile.</h4>
+<h4 align="center">Sticker API documentation: https://docs.stipop.io</h4>
 
 <p align="center">
   <a href="#Intro">Intro</a> •
